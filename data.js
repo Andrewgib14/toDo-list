@@ -1,8 +1,8 @@
 module.exports = {
-    toDo: [
-        { name: "Feed dogs" },
-        { name: "Wash car" },
-        { name: "Take out trash" },
-        { name: "Clean house" }
-    ]
+    todos: [
+        { name: "Feed dogs", completed: false },
+        { name: "Wash car", completed: false },
+        { name: "Take out trash", completed: false },
+        { name: "Clean house", completed: false }
+    ],
 }

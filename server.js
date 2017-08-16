@@ -7,6 +7,7 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || 8000;
 
+
 app.engine("mustache", mustacheExpress());
 app.set("views", "./views");
 app.set("view engine", "mustache");
@@ -19,11 +20,20 @@ app.use(expressValidator());
 
 
 app.get("/", function (req, res) {
-    res.render("home", data)
+    res.render("home", { todos: data.todos })
 })
 
 app.post("/toDoList", function (req, res) {
-    data.toDo.push(req.body);
+    let newTodo = req.body;
+    newTodo.completed = false;
+    data.todos.push(newTodo);
+    return res.redirect("/");
+})
+
+app.post("/completed", function (req, res) {
+    console.log(req.body);
+    data.todos.completed = true;
+    console.log(data.todos.completed);
     return res.redirect("/");
 })
 
