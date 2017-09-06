@@ -30,13 +30,6 @@ app.post("/toDoList", function (req, res) {
     return res.redirect("/");
 })
 
-app.post("/completed", function (req, res) {
-    console.log(req.body);
-    data.todos.completed = true;
-    console.log(data.todos.completed);
-    return res.redirect("/");
-})
-
 app.listen(port, function () {
     console.log("Server up on this port: ", port);
 })
